@@ -3,7 +3,7 @@ import jackets from '../../assets/adrian-ordonez-P0W27GRvyww-unsplash.jpg'
 
 const CategoryItem = ({ category }) => {
   // destructure props
-  const { imageUrl, title, id }= category
+  const { title, id }= category
   return (
     <div className="category-container" key={id}>
           <div className="background-image" style={{

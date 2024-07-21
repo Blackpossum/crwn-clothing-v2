@@ -1,0 +1,35 @@
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 10px 20px;
+
+  .logo {
+    height: 40px;
+  }
+
+  .Menu-Wrapper {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+
+    .Navlinks-container {
+      display: flex;
+      padding-right: 20px;
+      align-items: center;
+
+      .Nav-link {
+        text-decoration: none;
+        color: #fff;
+        margin-left: 20px;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}

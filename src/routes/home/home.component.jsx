@@ -1,4 +1,5 @@
 import Directory from '../../components/directory/directory.component'
+import { Outlet } from 'react-router';
 
 const HomePage = () => {
     const categories = [
@@ -28,10 +29,12 @@ const HomePage = () => {
           "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
         }
       ]
-      
-    
+
       return (
+        <div>
+          <Outlet/>
           <Directory categories={categories}/>
+        </div>
       );
 }
 
