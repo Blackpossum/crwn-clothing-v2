@@ -3,7 +3,6 @@ import './category-item.styless.scss'
 const CategoryItem = ({ category }) => {
   const { title, id, imageUrl } = category
 
-  console.log("this is category object", category)
   return (
     <div className="category-container" key={id}>
       <div className="background-image" style={{

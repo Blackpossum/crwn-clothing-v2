@@ -4,11 +4,12 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { EBasePath } from './const/DataEnum';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* add browser router to main control the route */}
-    <BrowserRouter>
+    <BrowserRouter basename={EBasePath.HOME}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
