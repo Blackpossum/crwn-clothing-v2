@@ -21,12 +21,20 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}   
-    
+
+    - name: Cache Node.js modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-
+
     - name: Install dependencies
-    run: |
-      npm install
-      npm install -D webpack webpack-cli style-loader css-loader babel-loader babel-core babel-preset-env babel-preset-react
+      run: npm install
+
+    - name: Install dev dependencies
+      run: npm install -D webpack webpack-cli style-loader css-loader babel-loader babel-core babel-preset-env babel-preset-react
 
     - name: Build
-    run: |
-      npx webpack
+      run: npx webpack
