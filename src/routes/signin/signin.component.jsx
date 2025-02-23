@@ -16,8 +16,6 @@ const SignIn = () => {
     console.log(userDocRef)
   }
 
-  //  redirect flow in here
-
   return (
     <div className={Style['sign-in-container']}>
       <h1>Sign In Page</h1>
