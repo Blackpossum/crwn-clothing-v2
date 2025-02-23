@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "develompment" ]
+    branches: [ "development" ]  # Fixed typo
 
 jobs:
   build:
@@ -15,12 +15,13 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}   
+        node-version: ${{ matrix.node-version }}
 
     - name: Cache Node.js modules
       uses: actions/cache@v3
@@ -31,10 +32,7 @@ jobs:
           ${{ runner.os }}-node-${{ matrix.node-version }}-
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Install dev dependencies
-      run: npm install -D webpack webpack-cli style-loader css-loader babel-loader babel-core babel-preset-env babel-preset-react
+      run: npm ci  # Faster and more reliable than `npm install`
 
     - name: Build
       run: npx webpack

@@ -36,4 +36,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  externals: {
+    '../../utils/firebase/firebase.utils': 'commonjs2 ../../utils/firebase/firebase.utils'
+  }
 };
