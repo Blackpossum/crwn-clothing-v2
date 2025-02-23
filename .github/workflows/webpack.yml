@@ -20,9 +20,14 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ matrix.node-version }}   
+    
+    - name: Install dependencies
+    run: |
+      npm install
+      npm install -D webpack webpack-cli style-loader css-loader babel-loader babel-core babel-preset-env babel-preset-react
 
     - name: Build
-      run: |
-        npm install
-        npx webpack
+    run: |
+      npx webpack
+      
