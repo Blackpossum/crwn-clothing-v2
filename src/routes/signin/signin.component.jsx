@@ -1,7 +1,14 @@
-import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils"
+
+import {
+  createUserDocumentFromAuth,
+  signInWithGooglePopup,
+} from '../../utils/firebase/firebase.utils';
+
+
 import Style from './signin.module.scss'
 
 const SignIn = () => {
+
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup()
     const userDocRef = await createUserDocumentFromAuth(user);
@@ -9,12 +16,25 @@ const SignIn = () => {
     console.log(userDocRef)
   }
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await getRedirectResult(auth);
+  //     if (response) {
+  //       const userDocRef = await createUserDocumentFromAuth(
+  //         response.user
+  //       );
+  //       console.log(userDocRef);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   return (
     <div className={Style['sign-in-container']}>
       <h1>Sign In Page</h1>
       <button onClick={logGoogleUser}>
-        Sign In with Google
+        Sign In with Google pop up
       </button>
     </div>
   )
