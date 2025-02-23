@@ -16,20 +16,6 @@ const SignIn = () => {
     console.log(userDocRef)
   }
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await getRedirectResult(auth);
-  //     if (response) {
-  //       const userDocRef = await createUserDocumentFromAuth(
-  //         response.user
-  //       );
-  //       console.log(userDocRef);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   return (
     <div className={Style['sign-in-container']}>
       <h1>Sign In Page</h1>
