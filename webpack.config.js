@@ -13,6 +13,24 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(js|jsx)$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/i,
+        use: ['@svgr/webpack'],
+      }
     ],
   },
   resolve: {
